@@ -56,26 +56,34 @@ export default function Home() {
 
         {/* Hero Section */}
         <section className="px-6 py-20 relative">
-          <div className="max-w-4xl mx-auto text-center w-full">
+          {/* Pulsing gradient circle behind Meet Opal */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[600px] h-[400px] md:w-[800px] md:h-[500px] rounded-full bg-gradient-to-r from-purple-600/15 via-purple-500/20 to-purple-400/15 animate-pulse-glow-circle blur-[100px] opacity-40"></div>
+          </div>
+          
+          <div className="max-w-4xl mx-auto text-center w-full relative z-10">
             <div className={`transition-all duration-1000 delay-500 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
-                Meet <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-400">Opal</span>
-              </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-8 font-medium">
-                The next-generation AI Discord bot that's going to change{' '}
-                                  <span className="relative inline-block">
-                    <span className="relative z-10">everything</span>
-                    <span
-                      className={`absolute left-1 bottom-0 h-1 bg-gradient-to-r from-purple-600 to-purple-400 rounded-full transition-all duration-1000 delay-1000 ${isVisible ? 'w-[90%] opacity-100' : 'w-0 opacity-0'}`}
-                      style={{
-                        zIndex: 0,
-                        pointerEvents: 'none',
-                      }}
-                    ></span>
+              <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight relative">
+                Meet                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-400 relative">
+                    Opal
+                    <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/10 to-purple-400/10 rounded-lg blur-2xl animate-pulse-soft"></div>
                   </span>
+              </h1>
+                            <p className="text-xl md:text-2xl text-gray-300 mb-8 font-medium relative">
+                The next-generation AI Discord bot that's going to change{' '}
+                <span className="relative inline-block">
+                  <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-300 font-semibold">everything</span>
+                  <span
+                    className={`absolute left-1 bottom-0 h-1 bg-gradient-to-r from-purple-600 to-purple-400 rounded-full transition-all duration-1000 delay-1000 ${isVisible ? 'w-[90%] opacity-100' : 'w-0 opacity-0'}`}
+                    style={{
+                      zIndex: 0,
+                      pointerEvents: 'none',
+                    }}
+                  ></span>
+                </span>
               </p>
-              <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-                We're building something extraordinary. Opal will revolutionize how you interact with your Discord community through intelligent automation and seamless integration.
+              <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                We're building something <span className="text-purple-300 font-medium">extraordinary</span>. Opal will revolutionize how you interact with your Discord community through <span className="text-purple-300 font-medium">intelligent automation</span> and seamless integration.
               </p>
             </div>
 
@@ -96,7 +104,7 @@ export default function Home() {
         </section>
 
         {/* Top Wave Separator */}
-        <div className="relative">
+        <div className="relative overflow-hidden">
           <svg className="w-full h-32 md:h-40" viewBox="0 0 1200 120" preserveAspectRatio="none">
             <defs>
               <linearGradient id="topWave" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -105,7 +113,9 @@ export default function Home() {
                 <stop offset="100%" stopColor="rgba(196, 181, 253, 0.4)" />
               </linearGradient>
             </defs>
-            <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" fill="url(#topWave)" />
+            <g className="animate-wave-flow-left">
+              <path d="M-1200,60 Q-900,0 -600,60 Q-300,120 0,60 Q300,0 600,60 Q900,120 1200,60 Q1500,0 1800,60 Q2100,120 2400,60 L2400,120 L-1200,120 Z" fill="url(#topWave)" />
+            </g>
           </svg>
         </div>
 
@@ -209,7 +219,7 @@ export default function Home() {
           <section className="px-6 py-20">
             <div className="max-w-4xl mx-auto text-center">
               <div className={`transition-all duration-1000 delay-1300 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-                <div className="bg-gradient-to-r from-purple-900/30 to-purple-800/30 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-12">
+                <div className="bg-gray-900/60 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-12">
                   <h2 className="text-3xl font-bold text-white mb-6">Want to Stay in the Loop?</h2>
                   <p className="text-gray-300 text-lg mb-8">
                     Opal is currently in development. Join our Discord community to follow our progress, provide feedback, and be among the first to know when we launch.
@@ -232,7 +242,7 @@ export default function Home() {
             </div>
           </section>
           {/* Bottom Wave Separator */}
-          <div className="relative -mb-1">
+          <div className="relative -mb-1 overflow-hidden">
             <svg className="w-full h-32 md:h-40" viewBox="0 0 1200 120" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="bottomWave" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -241,7 +251,9 @@ export default function Home() {
                   <stop offset="100%" stopColor="rgba(124, 58, 237, 0.4)" />
                 </linearGradient>
               </defs>
-              <path d="M0,0 C300,120 900,0 1200,60 L1200,120 L0,120 Z" fill="url(#bottomWave)" />
+              <g className="animate-wave-flow-right">
+                <path d="M-1200,30 Q-900,80 -600,30 Q-300,0 0,30 Q300,80 600,30 Q900,0 1200,30 Q1500,80 1800,30 Q2100,0 2400,30 L2400,120 L-1200,120 Z" fill="url(#bottomWave)" />
+              </g>
             </svg>
           </div>
         </div>
