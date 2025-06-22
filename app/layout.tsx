@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Opal - Discord Bot",
-  description: "A modern AI-powered Discord bot for your server",
+  description: "Your server, Your way - The future of Discord automation",
 };
 
 export default function RootLayout({
