@@ -1,5 +1,5 @@
 'use client';
-
+// too lazy to do vercel stuff so this is my commit LOL
 import { useEffect, useState } from 'react';
 import { Bot, Shield, Clock, Gift, Plus, MessageSquare, Settings, CheckCircle, Volume2, VolumeX } from 'lucide-react';
 
