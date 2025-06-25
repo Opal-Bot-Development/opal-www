@@ -1,11 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Bot, Shield, Clock, Gift, Plus, MessageSquare, Settings, CheckCircle } from 'lucide-react';
+import { Bot, Shield, Clock, Gift, Plus, MessageSquare, Settings, CheckCircle, Volume2, VolumeX } from 'lucide-react';
 
 export default function Home() {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     setIsVisible(true);
@@ -85,6 +86,28 @@ export default function Home() {
               <p className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
                 We're building something <span className="text-purple-300 font-medium">extraordinary</span>. Opal will revolutionize how you interact with your Discord community through <span className="text-purple-300 font-medium">intelligent automation</span> and seamless integration.
               </p>
+
+              {/* YouTube Promo Trailer */}
+              <div className={`transition-all duration-1000 delay-700 my-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+                <div className="aspect-video max-w-2xl mx-auto rounded-xl overflow-hidden shadow-2xl shadow-purple-500/20 border border-purple-500/30 relative group">
+                  <iframe
+                    src={`https://www.youtube.com/embed/XqVWQIy9G7g?si=RiiFybFqnTzuQhAE&autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=XqVWQIy9G7g&controls=0`}
+                    title="Opal Promo Trailer"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full"
+                  ></iframe>
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
+                  <button 
+                    onClick={() => setIsMuted(!isMuted)}
+                    className="absolute bottom-4 right-4 z-20 text-white bg-black/30 backdrop-blur-sm rounded-full p-2 hover:bg-black/50 transition-all"
+                    aria-label={isMuted ? "Unmute video" : "Mute video"}
+                  >
+                    {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
+                  </button>
+                </div>
+              </div>
             </div>
 
             {/* Down Arrow Button */}
